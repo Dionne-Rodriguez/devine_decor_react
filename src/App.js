@@ -12,9 +12,12 @@ function App() {
 
   return (
     <div className="bg-[#fdf0eb]">
-      <header className="h-14 bg-[#fdf0eb] items-center flex flex-row">
+      <header className="h-16 bg-[#fdf0eb] items-center flex flex-row">
         <div className="w-1/4 flex justify-start">
-          <a className="hover:text hover:border-b-2 border-black mx-2 text-sm">
+          <a
+            href="/"
+            className="hover:text hover:border-b-2 border-black mx-2 text-sm"
+          >
             HOME
           </a>
           <a className="hover:text hover:border-b-2 border-black mx-2 text-sm">
@@ -23,7 +26,10 @@ function App() {
           <a className="hover:text hover:border-b-2 border-black mx-2 text-sm">
             REVIEWS
           </a>
-          <a className="hover:text hover:border-b-2 border-black mx-2 text-sm">
+          <a
+            href="/contact"
+            className="hover:text hover:border-b-2 border-black mx-2 text-sm"
+          >
             CONTACT
           </a>
         </div>
