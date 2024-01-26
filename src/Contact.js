@@ -100,6 +100,10 @@ function App() {
           </div>
 
           <button className="m-11">Submit</button>
+
+          <div className="m-11">
+            <p>Thanks for sending your message!</p>
+          </div>
         </form>
       </div>
     </div>
