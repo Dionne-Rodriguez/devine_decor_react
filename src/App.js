@@ -23,9 +23,7 @@ function App() {
           <a className="hover:text hover:border-b-2 border-black mx-2 text-sm">
             PORTFOLIO
           </a>
-          <a className="hover:text hover:border-b-2 border-black mx-2 text-sm">
-            REVIEWS
-          </a>
+
           <a
             href="/contact"
             className="hover:text hover:border-b-2 border-black mx-2 text-sm"

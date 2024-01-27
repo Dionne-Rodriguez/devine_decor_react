@@ -5,6 +5,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import "./App.css";
+import { useEffect } from "react";
 
 function App() {
   const [submitDisabled, setSubmitDisabled] = useState(true);
@@ -15,9 +16,9 @@ function App() {
     formState: { errors },
   } = useForm();
   function onChange(value) {
-    console.log("Captcha value:", value);
     setSubmitDisabled(false);
   }
+
   console.log(errors);
   return (
     <div className="bg-[#fdf0eb]">
@@ -31,9 +32,6 @@ function App() {
           </a>
           <a className="hover:text hover:border-b-2 border-black mx-2 text-sm">
             PORTFOLIO
-          </a>
-          <a className="hover:text hover:border-b-2 border-black mx-2 text-sm">
-            REVIEWS
           </a>
           <a
             href="/contact"
@@ -57,7 +55,7 @@ function App() {
         </div>
       </header>
 
-      <div className="w-full mb-11">
+      <div className="w-full">
         <h1 className="my-8 mx-5 text-3xl">Inquire</h1>
         <p className="mx-5">
           Let us know what's on your mind! Wether its help budgeting or planning
@@ -69,6 +67,9 @@ function App() {
             showNotification(true);
             console.log(notifiaction);
             e.preventDefault();
+            setTimeout(() => {
+              showNotification(false);
+            }, 3000);
           })}
         >
           <div className="grid grid-cols-2 gap-2 mb-6 my-11 justify-center">
@@ -139,11 +140,13 @@ function App() {
             />
           </div>
           <div
-            className={`bg-green-400 w-[25%] text-center flex justify-center p-5 inset-x-0 -bottom-15 fixed mx-auto ${
-              notifiaction ? "-translate-y-6" : ""
+            className={`bg-green-400 w-[25%] text-center flex justify-center p-5 inset-x-0 -bottom-15 fixed mx-auto ease-in-out duration-1000 ${
+              notifiaction
+                ? "bottom-0 transition transform -translate-y-8 ease-in-out duration-300"
+                : ""
             }`}
           >
-            <p>Thanks for sending your message!</p>
+            <p>Message sent and received!</p>
           </div>
         </form>
       </div>
