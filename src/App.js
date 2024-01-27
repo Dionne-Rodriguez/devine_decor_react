@@ -5,11 +5,6 @@ import aboutImg from "./images/IMG_2454.jpg";
 import "./App.css";
 
 function App() {
-  const hoverCount = 0;
-  function increment() {
-    hoverCount++;
-  }
-
   return (
     <div className="bg-[#fdf0eb]">
       <header className="h-16 bg-[#fdf0eb] items-center flex flex-row">
