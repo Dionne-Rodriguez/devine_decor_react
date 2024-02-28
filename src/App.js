@@ -15,7 +15,10 @@ function App() {
           >
             HOME
           </a>
-          <a className="hover:text hover:border-b-2 border-black mx-2 text-sm">
+          <a
+            href="/"
+            className="hover:text hover:border-b-2 border-black mx-2 text-sm"
+          >
             PORTFOLIO
           </a>
 
@@ -28,15 +31,15 @@ function App() {
         </div>
 
         <div className="w-1/2 flex justify-center">
-          <img className="" src={devineIcon} />
+          <img alt="logo" className="" src={devineIcon} />
         </div>
 
         <div className="w-1/4 flex items-center justify-center">
           <a href="https://www.instagram.com/devinedecor__" className="mx-2">
-            <img src={igIcon} />
+            <img alt="" src={igIcon} />
           </a>
-          <a className="mx-2">
-            <img src={logo} />
+          <a href="/" className="mx-2">
+            <img alt="" src={logo} />
           </a>
         </div>
       </header>
@@ -53,6 +56,8 @@ function App() {
           </p>
         </div>
         <img
+          img
+          alt=""
           className="h-screen w-full z-0"
           src={require("./images/main-background.jpeg")}
         />
@@ -61,7 +66,7 @@ function App() {
       <div>
         <div className="flex flex-row m-[3%] h-[800px]">
           <div className="w-1/2">
-            <img className="w-full h-[80%]" src={aboutImg} />
+            <img alt="" className="w-full h-[80%]" src={aboutImg} />
           </div>
           <div className="w-1/2 flex flex-col space-y-10 text-center">
             <h2 className="text-4xl">About</h2>

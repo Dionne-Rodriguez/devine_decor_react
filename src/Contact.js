@@ -5,7 +5,6 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import "./App.css";
-import { useEffect } from "react";
 
 function App() {
   const [submitDisabled, setSubmitDisabled] = useState(true);
@@ -21,7 +20,7 @@ function App() {
 
   console.log(errors);
   return (
-    <div className="bg-[#fdf0eb]">
+    <div className="bg-[#fdf0eb] h-screen">
       <header className="h-16 bg-[#fdf0eb] items-center flex flex-row">
         <div className="w-1/4 flex justify-start">
           <a
@@ -30,7 +29,10 @@ function App() {
           >
             HOME
           </a>
-          <a className="hover:text hover:border-b-2 border-black mx-2 text-sm">
+          <a
+            href="/"
+            className="hover:text hover:border-b-2 border-black mx-2 text-sm"
+          >
             PORTFOLIO
           </a>
           <a
@@ -42,15 +44,15 @@ function App() {
         </div>
 
         <div className="w-1/2 flex justify-center">
-          <img className="" src={devineIcon} />
+          <img alt="" className="" src={devineIcon} />
         </div>
 
         <div className="w-1/4 flex items-center justify-center">
           <a href="https://www.instagram.com/devinedecor__" className="mx-2">
-            <img src={igIcon} />
+            <img alt="" src={igIcon} />
           </a>
-          <a className="mx-2">
-            <img src={logo} />
+          <a href="/" className="mx-2">
+            <img img alt="" src={logo} />
           </a>
         </div>
       </header>
@@ -140,10 +142,10 @@ function App() {
             />
           </div>
           <div
-            className={`bg-green-400 w-[25%] text-center flex justify-center p-5 inset-x-0 -bottom-15 fixed mx-auto ease-in-out duration-1000 ${
+            className={`  ${
               notifiaction
-                ? "bottom-0 transition transform -translate-y-8 ease-in-out duration-300"
-                : ""
+                ? "bg-green-400 w-[25%] text-center flex justify-center p-5 fixed inset-x-0 mx-auto transition transform -translate-y-8 ease-in-out duration-300"
+                : "bg-green-400 w-[25%] text-center flex justify-center p-5 fixed inset-x-0 bottom-0  mx-auto hidden"
             }`}
           >
             <p>Message sent and received!</p>
