@@ -4,6 +4,7 @@ import devineIcon from "./images/Devine-logo.svg";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import "./App.css";
 
 function App() {
@@ -18,7 +19,29 @@ function App() {
     setSubmitDisabled(false);
   }
 
-  console.log(errors);
+  const onSubmit = async (data, e) => {
+    e.preventDefault();
+
+    await emailjs
+      .send(
+        process.env.REACT_APP_SERVICE_ID,
+        process.env.REACT_APP_TEMPLATE_ID,
+        {
+          from_name: `${data.firstName} ${data.lastName} `,
+          message: `${data.message}`,
+          reply_to: `${data.email}`,
+        },
+        process.env.REACT_APP_PUBLIC_ID
+      )
+      .catch((error) => console.log(error))
+      .then(() => showNotification(true))
+      .finally(() => {
+        setTimeout(() => {
+          showNotification(false);
+        }, 3000);
+      });
+  };
+
   return (
     <div className="bg-[#fdf0eb] h-screen">
       <header className="h-16 bg-[#fdf0eb] items-center flex flex-row">
@@ -63,17 +86,7 @@ function App() {
           Let us know what's on your mind! Wether its help budgeting or planning
           our team is here to help you!
         </p>
-        <form
-          onSubmit={handleSubmit((data, e) => {
-            console.log(notifiaction);
-            showNotification(true);
-            console.log(notifiaction);
-            e.preventDefault();
-            setTimeout(() => {
-              showNotification(false);
-            }, 3000);
-          })}
-        >
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className="grid grid-cols-2 gap-2 mb-6 my-11 justify-center">
             <div className="w-full md:w-[100%] px-3 mb-6 md:mb-0">
               <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">

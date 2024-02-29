@@ -2,9 +2,12 @@ import logo from "./logo.svg";
 import igIcon from "./instagram-logo.svg";
 import devineIcon from "./images/Devine-logo.svg";
 import aboutImg from "./images/IMG_2454.jpg";
+import emailjs from "@emailjs/browser";
+import { useEffect } from "react";
 import "./App.css";
 
 function App() {
+  useEffect(() => emailjs.init("YOUR-PUBLIC-KEY-HERE"), []);
   return (
     <div className="bg-[#fdf0eb]">
       <header className="h-16 bg-[#fdf0eb] items-center flex flex-row">
